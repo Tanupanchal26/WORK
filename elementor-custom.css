@@ -1,0 +1,25 @@
+/* Elementor Custom CSS for Volatus Aerospace */
+.elementor-kit-6 {
+    --e-global-color-primary: #0066cc;
+    --e-global-color-secondary: #1a1a1a;
+    --e-global-color-text: #333333;
+    --e-global-color-accent: #f8f9fa;
+}
+
+.elementor-nav-menu--main .elementor-nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.elementor-nav-menu--dropdown .elementor-nav-menu--dropdown {
+    min-width: 220px;
+}
+
+.elementor-widget-nav-menu .elementor-nav-menu a {
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.elementor-widget-nav-menu .elementor-nav-menu a:hover {
+    color: var(--e-global-color-primary);
+}
