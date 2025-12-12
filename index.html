@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volatus Aerospace - Advanced Aviation Solutions</title>
+    <link rel="stylesheet" href="public/css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h2>VOLATUS AEROSPACE</h2>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#services">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#drone-services">Drone Services</a></li>
+                            <li><a href="#training">Training</a></li>
+                            <li><a href="#consulting">Consulting</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#divisions">Divisions</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#volatus-unmanned">Volatus Unmanned</a></li>
+                            <li><a href="#volatus-aviation">Volatus Aviation</a></li>
+                            <li><a href="#volatus-infrastructure">Infrastructure</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main style="margin-top: 80px;">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Advanced Aviation Solutions</h1>
+                <p>Leading drone operations, pilot training, and aerospace consulting services</p>
+                <a href="#services" class="cta-button">Explore Services</a>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section class="services-section">
+            <div class="container">
+                <h2>Our Core Services</h2>
+                <div class="services-grid" id="services-container">
+                    <!-- Services loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="contact-cta">
+            <div class="container">
+                <h2>Ready to Take Flight?</h2>
+                <p>Contact our aviation experts today</p>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#news">News</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#drone-services">Drone Operations</a></li>
+                    <li><a href="#training">Pilot Training</a></li>
+                    <li><a href="#consulting">Consulting</a></li>
+                    <li><a href="#maintenance">Maintenance</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-info">
+                    <p><strong>Address:</strong><br>123 Aviation Blvd<br>Toronto, ON M1A 1A1</p>
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@volatusaerospace.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">YouTube</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Volatus Aerospace. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Load services dynamically from Netlify function
+        fetch('/.netlify/functions/services')
+            .then(response => response.json())
+            .then(services => {
+                const container = document.getElementById('services-container');
+                container.innerHTML = services.map(service => `
+                    <div class="service-card">
+                        <div class="service-icon">${service.icon}</div>
+                        <h3>${service.name}</h3>
+                        <p>${service.description}</p>
+                    </div>
+                `).join('');
+            })
+            .catch(error => {
+                console.error('Error loading services:', error);
+                // Fallback content
+                document.getElementById('services-container').innerHTML = `
+                    <div class="service-card">
+                        <h3>Drone Operations</h3>
+                        <p>Professional UAV services for commercial and industrial applications</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Pilot Training</h3>
+                        <p>Comprehensive aviation training programs and certifications</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Consulting</h3>
+                        <p>Expert aerospace consulting and regulatory compliance support</p>
+                    </div>
+                `;
+            });
+
+        // Mobile navigation
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
