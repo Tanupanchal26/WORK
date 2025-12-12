@@ -1,0 +1,51 @@
+<% 
+const body = `
+<div style="margin-top: 80px;">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Advanced Aviation Solutions</h1>
+            <p>Leading drone operations, pilot training, and aerospace consulting services</p>
+            <a href="/services" class="cta-button">Explore Services</a>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-section">
+        <div class="container">
+            <h2>Our Core Services</h2>
+            <div class="services-grid" id="services-container">
+                <!-- Services loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Ready to Take Flight?</h2>
+            <p>Contact our aviation experts today</p>
+            <a href="/contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+</div>
+
+<script>
+// Load services dynamically
+fetch('/api/services')
+    .then(response => response.json())
+    .then(services => {
+        const container = document.getElementById('services-container');
+        container.innerHTML = services.map(service => \`
+            <div class="service-card">
+                <div class="service-icon">\${service.icon}</div>
+                <h3>\${service.name}</h3>
+                <p>\${service.description}</p>
+            </div>
+        \`).join('');
+    });
+</script>
+`;
+%>
+
+<%- include('layout', { body: body }) %>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h2>VOLATUS AEROSPACE</h2>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a></li>
+                    <li class="dropdown">
+                        <a href="/services" class="<%= page === 'services' ? 'active' : '' %>">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/services#drone-services">Drone Services</a></li>
+                            <li><a href="/services#training">Training</a></li>
+                            <li><a href="/services#consulting">Consulting</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#divisions">Divisions</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#volatus-unmanned">Volatus Unmanned</a></li>
+                            <li><a href="#volatus-aviation">Volatus Aviation</a></li>
+                            <li><a href="#volatus-infrastructure">Infrastructure</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a></li>
+                    <li><a href="/contact" class="<%= page === 'contact' ? 'active' : '' %>">Contact</a></li>
+                </ul>
+                <div class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <%- body %>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="/services#drone-services">Drone Operations</a></li>
+                    <li><a href="/services#training">Pilot Training</a></li>
+                    <li><a href="/services#consulting">Consulting</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-info">
+                    <p><strong>Address:</strong><br>123 Aviation Blvd<br>Toronto, ON M1A 1A1</p>
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@volatusaerospace.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">YouTube</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Volatus Aerospace. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
